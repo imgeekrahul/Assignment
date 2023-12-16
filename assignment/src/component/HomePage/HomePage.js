@@ -5,6 +5,8 @@ import 'remixicon/fonts/remixicon.css'
 import 'react-phone-number-input/style.css';
 import PhoneInput from 'react-phone-number-input';
 import axios from 'axios';
+import {useNavigate} from 'react-router-dom';
+
 
 
 const HomePage = () => {
@@ -15,12 +17,14 @@ const HomePage = () => {
     const [emailId, setEmailId] = useState('');
     const [city, setCity] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
     const handleFormSubmit = async (e) => {
         e.preventDefault();
         await axios.post('http://localhost:5050/api/add/user', {firstname, lastname, phone, emailId, city, password})
         .then((newUser) => {
             console.log("New user created :", newUser)
+            navigate('/moment')
             setFirstName('');
             setLastName('');
             setPhone('');
