@@ -1,0 +1,19 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.momentHeader {
+    height: 40px;
+    border-bottom: 1px solid #ededed;
+    box-shadow: 0 20px 20px -18px #333;
+}
+.momentHeader .drawer_icon{
+    padding-left: 270px;
+}
+.addNewMoment {
+    height: 60px;
+    background-color: #ededed;
+    padding: 8px;
+    padding-left: 350px;
+    box-shadow: 1 55px 32px 32px #333;
+}

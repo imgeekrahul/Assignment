@@ -1,0 +1,60 @@
+.mainContent {
+    margin-left: 230px;
+}
+.tagInput {
+    display: flex;
+    overflow: scroll;
+    width: 100%;
+    border-bottom: 1px solid #ededed;
+}
+.tagInput input{
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    padding: 14px;
+    padding-left: 10px;
+}
+.tag {
+    display: flex;
+    align-items: center;
+    margin: 7px 0;
+    margin-right: 10px;
+    padding: 0 20px;
+    border: 1px solid #a6e6d1;
+    border-radius: 50px;
+    background-color: #fff;
+    white-space: nowrap;
+    color: #013136;
+}
+
+.tag button {
+    display: flex;
+    margin-left: 10px;
+    border: 1px solid #000;
+    background-color: #013136;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+center button{
+    width: 10vw;
+    height: 8vh;
+    padding: 10px;
+    border-radius: 20px;
+    align-items: center;
+    background-color: #001b31;
+    color: #fff;
+    border: none;
+}
+.form-box {
+    border: 1px solid #ededed;
+    border-radius: 0px;
+    padding: 4%;
+    width: 60%;
+    height: 100%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin: 20px 22px 50px 400px;
+}

@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    width: 100%;
+    height: 40vh;
+    background-color: #001b31;
+    text-align: center; 
+    position: relative;
+}
+.header img {
+    position: sticky;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+div .container {
+    width: 50%;
+}
+
+input {
+    border: none;
+    border-bottom: 1px solid #ededed;
+    outline: none
+}
+
+hr {
+    width: 20px;
+    margin: 0;
+}
+.signUp {
+    background-color: #001b31;
+    color: #fff;
+    border: none;
+}
+.col-1 {
+    border-bottom: 1px solid #ededed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.signupSection {
+    background-color: #fff;
+    border-top-left-radius: 50px;
+    position: absolute;
+    width: 100%;
+    top: 30vh;
+    bottom: 0;
+}

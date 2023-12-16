@@ -1,0 +1,35 @@
+.sideNav {
+    position: absolute;
+    width: 20%;
+    height: 100%;
+    background-color: #fff;
+}
+.sideNav .logo {
+    padding-left: 35%;
+}
+.sideNavOption {
+    margin-top: 50px;
+}
+.sideNavOption .sideOp {
+    padding-left: 30px; 
+}
+.sideNavOption .moments {
+    background-color: #001b31;
+    color: #fff;
+    align-items: center;
+    width: 100%;
+    padding-left: 30px;
+    position: absolute;
+}
+.collapseBody {
+    border: none;
+    padding-top: 10px;
+}
+.collapseBody ul li{
+    padding: 10px;
+    list-style-type: none;
+    cursor: pointer;
+}
+.listClass {
+    font-size: large;
+}
