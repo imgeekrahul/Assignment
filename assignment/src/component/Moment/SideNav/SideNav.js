@@ -2,15 +2,16 @@ import React, { useState } from 'react'
 import EventLogo from '../../../assets/event_logo.png'
 import './SideNav.css';
 import {CButton, CCollapse, CCard, CCardBody} from '@coreui/react'
+import MainContent from '../MainContent/MainContentBody';
 
-const SideNav = () => {
+const SideNav = ({handleClick}) => {
 
   const [visible, setVisible] = useState(false)
   const [momentSelected, setMomentSelected] = useState(false)
   const [newMomentSelected, setNewMomentSelected] = useState(false)
   
 
-  const handleClick = (name) => {
+  const handleTab = (name) => {
     if(name == "momentList") {
       setMomentSelected(true)
       setNewMomentSelected(false)
@@ -18,6 +19,7 @@ const SideNav = () => {
     if(name == "newMoment") {
       setNewMomentSelected(true)
       setMomentSelected(false)
+
     }
   }
 
@@ -44,12 +46,12 @@ const SideNav = () => {
                 <CCard className="collapseBody mt-5">
                   <CCardBody>
                     <ul>
-                      <li onClick={() => handleClick("momentList")}>
+                      <li onClick={() => {handleClick("momentList"); handleTab("momentList")}}>
                         {
                           momentSelected ? <b>•   Moment List</b> : <p>Moment List</p>
                         }
                         </li>
-                      <li onClick={() => handleClick("newMoment")}>
+                      <li onClick={() => {handleClick("newMoment"); handleTab("newMoment")}}>
                         {
                           newMomentSelected ? <b>•   Add New Moment</b> : <p>Add New Moment</p>
                         }

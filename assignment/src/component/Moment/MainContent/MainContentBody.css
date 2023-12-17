@@ -4,8 +4,9 @@
 .tagInput {
     display: flex;
     overflow: scroll;
-    width: 100%;
     border-bottom: 1px solid #ededed;
+    height: max-content;
+    width: 45%;
 }
 .tagInput input{
     width: 100%;
@@ -57,4 +58,30 @@ center button{
     height: 100%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin: 20px 22px 50px 400px;
+}
+
+progress {
+    width: 100%;
+    vertical-align: middle;
+    line-height: normal;
+}
+
+.fileupload input {
+    color: transparent;
+    border-bottom: none;
+    position: relative;
+    top: 50%;
+    left: 35%;
+}
+
+.fileupload{
+    width: 45%;
+    text-align: center;
+    height: 110px;
+    border: 2px dashed #ededed;
+}
+
+.fileupload-drag {
+    line-height: 1;
+    margin-top: 15px;
 }

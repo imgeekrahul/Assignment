@@ -6,9 +6,20 @@ import SideNav from '../SideNav/SideNav'
 
 const Header = () => {
 
+    const [newMoment, setNewMoment] = useState(false);
+    
+    const handleClick = (optionName) => {
+        if(optionName == "momentList") {
+            setNewMoment(false);
+        }
+        if(optionName == "newMoment") {
+            setNewMoment(true)
+        }
+    }
+
     return(
         <div className='momentHeader'>
-            <SideNav />
+            <SideNav handleClick={handleClick} />
                 <div className='d-flex justify-content-between mx-5 my-3'>
                     <div className='drawer_icon' role="button">
                         <i class="ri-menu-2-line"></i>
@@ -20,7 +31,13 @@ const Header = () => {
                 <div className='addNewMoment fs-3 fw-bolder'>
                     <p class="">Add new moment</p>
                 </div>
-            <MainContentBody />
+                {
+                    newMoment ? <MainContentBody /> : 
+                    <div className='nonContent'>
+                        <p>No Content Available !!</p>
+                    </div>
+                    
+                }
         </div>
     )
 }

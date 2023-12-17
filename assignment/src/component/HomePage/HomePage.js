@@ -24,6 +24,7 @@ const HomePage = () => {
         await axios.post('http://localhost:5050/api/add/user', {firstname, lastname, phone, emailId, city, password})
         .then((newUser) => {
             console.log("New user created :", newUser)
+            
             navigate('/moment')
             setFirstName('');
             setLastName('');

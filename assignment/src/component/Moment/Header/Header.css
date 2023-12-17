@@ -10,6 +10,12 @@
 .momentHeader .drawer_icon{
     padding-left: 270px;
 }
+.nonContent{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+}
 .addNewMoment {
     height: 60px;
     background-color: #ededed;
