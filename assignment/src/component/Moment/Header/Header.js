@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import './Header.css'
 import MainContentBody from '../MainContent/MainContentBody'
 import SideNav from '../SideNav/SideNav'
-
+import { useLocation } from 'react-router-dom'
 
 const Header = () => {
 
@@ -16,6 +16,9 @@ const Header = () => {
             setNewMoment(true)
         }
     }
+
+    // const {state} = useLocation();
+    // const userId = state.userId
 
     return(
         <div className='momentHeader'>

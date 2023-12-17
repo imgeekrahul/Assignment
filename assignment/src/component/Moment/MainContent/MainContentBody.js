@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './MainContentBody.css'
 import axios from 'axios'
 
-const MainContent = () => {
+const MainContent = ({userId}) => {
     
     const [title, setTitle] = useState('')
     const [input, setInput] = useState('');
@@ -12,7 +12,6 @@ const MainContent = () => {
     /* File Upload */
     const [progress, setProgress] = useState({started: false, pc:0})
     const [msg, setMsg] = useState(null);
-
 
     const onChange = (e) => {
         const {value} = e.target;
@@ -58,6 +57,7 @@ const MainContent = () => {
         formData.append("document", file);
         formData.append("title", title);
         formData.append("tags", tags);
+        formData.append("userId", userId);
 
         setMsg("Uploading...")
         setProgress(prevState => {
@@ -95,7 +95,7 @@ const MainContent = () => {
                     <div className='row'>
                         <label for="title" class="form-label">Title</label>
                         <br />
-                        <input type='text' placeholder='Sample title' className='p-2 w-100' value={title} onChange={(e) => setTitle(e.target.value)} />
+                        <input type='text' placeholder='Sample title' className='p-2 w-100' value={title} onChange={(e) => setTitle(e.target.value)} required />
                     </div>
                     <div className='row justify-content-between mt-3'>
                         <label for="tags" class="form-label">Tags</label>
@@ -108,13 +108,13 @@ const MainContent = () => {
                                     </div>
                                 )
                             )}
-                            <input value={input} placeholder='Enter Tag' onKeyDown={onKeyDown} onChange={onChange} onKeyUp={onKeyUp} />
+                            <input value={input} placeholder='Enter Tag' onKeyDown={onKeyDown} onChange={onChange} onKeyUp={onKeyUp} required />
                         </div>
                         <div className='col-4 fileupload'>
                             <div className='fileupload-drag'>
                                 <p>Drag & drop file</p>
                                 <b>OR</b>
-                                <input type="file" name="document" onChange={(e) => setFile(e.target.files[0])} />
+                                <input type="file" name="document" onChange={(e) => setFile(e.target.files[0])} required />
                             </div>
                             
                         </div>

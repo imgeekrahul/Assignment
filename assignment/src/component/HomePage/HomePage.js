@@ -6,6 +6,7 @@ import 'react-phone-number-input/style.css';
 import PhoneInput from 'react-phone-number-input';
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom';
+import localStorage from 'local-storage'
 
 
 
@@ -24,7 +25,10 @@ const HomePage = () => {
         await axios.post('http://localhost:5050/api/add/user', {firstname, lastname, phone, emailId, city, password})
         .then((newUser) => {
             console.log("New user created :", newUser)
-            
+            localStorage.set("username", newUser)
+            const name = localStorage.get("username")
+            console.log(name.data._id);
+            const userId = name.data._id;
             navigate('/moment')
             setFirstName('');
             setLastName('');
@@ -56,7 +60,7 @@ const HomePage = () => {
                                     <i className="ri-user-line"></i>
                                 </div>
                                 <div className='col-3'>
-                                    <input type="text" placeholder='Robert' value={firstname} onChange={(e) => setFirstName(e.target.value)} />
+                                    <input type="text" placeholder='Robert' value={firstname} onChange={(e) => setFirstName(e.target.value)} required />
                                 </div>
                             </div>
                         </div>
@@ -67,23 +71,25 @@ const HomePage = () => {
                                     <i class="ri-user-line"></i>
                                 </div>
                                 <div className='col-3'>
-                                <input type="text" placeholder='Downey Jr.' value={lastname} onChange={(e) => setLastName(e.target.value)} />
+                                <input type="text" placeholder='Downey Jr.' value={lastname} onChange={(e) => setLastName(e.target.value)} required />
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div className='row m-0 mt-4'>
-                        <div className='col lh-2'>
+                        <div className='col mr-4 lh-2'>
                             Mobile No.
 
                             <PhoneInput 
-                                className='mt-3'
+                                className='mt-3 mr-3 '
                                 placeholder="Enter phone number"
                                 defaultCountry='IN'
+                                pattern="[6789][0-9]{9}"
+                                title="Please enter valid phone number"
                                 value={phone}
                                 onChange={setPhone}
                                 style={{border: "none", outline: "none", width: "90px", height: "20px"}}
-                            />
+                            required />
                         </div>
                         <div className='col lh-2'>
                             Email-ID
@@ -92,7 +98,7 @@ const HomePage = () => {
                                     <i class="ri-mail-line"></i>
                                 </div>
                                 <div className='col-3'>
-                                    <input type="text" placeholder='rdj@gmail.com' value={emailId} onChange={(e) => setEmailId(e.target.value)} />
+                                    <input type="email" placeholder='rdj@gmail.com' value={emailId} onChange={(e) => setEmailId(e.target.value)} required />
                                 </div>
                             </div>
                         </div>
@@ -101,7 +107,7 @@ const HomePage = () => {
                         <div className='col lh-2'>
                             City
                             <div className='col mt-3'>
-                                <input type="text" placeholder='Pune' value={city} onChange={(e) => setCity(e.target.value)} />
+                                <input type="text" placeholder='Pune' value={city} onChange={(e) => setCity(e.target.value)} required />
                             </div>
                         </div>
                         <div className='col lh-2'>
@@ -111,7 +117,7 @@ const HomePage = () => {
                                     <i class="ri-lock-line"></i>
                                 </div>
                                 <div className='col-3'>
-                                    <input type="password" placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)} />
+                                    <input type="password" placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)} minLength="4" maxLength="8" />
                                 </div>
                             </div>
                         </div>
