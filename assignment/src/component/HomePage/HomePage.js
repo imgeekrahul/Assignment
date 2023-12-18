@@ -29,7 +29,7 @@ const HomePage = () => {
             const name = localStorage.get("username")
             console.log(name.data._id);
             const userId = name.data._id;
-            navigate('/moment')
+            navigate('/moment', {state: { userId }})
             setFirstName('');
             setLastName('');
             setPhone('');
@@ -83,7 +83,6 @@ const HomePage = () => {
                                 className='mt-3 mr-3 justify-content-between'
                                 placeholder="Enter phone number"
                                 defaultCountry='IN'
-                                pattern="[6789][0-9]{9}"
                                 title="Please enter valid phone number"
                                 value={phone}
                                 onChange={setPhone}
