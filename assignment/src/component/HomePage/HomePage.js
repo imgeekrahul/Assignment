@@ -79,9 +79,8 @@ const HomePage = () => {
                     <div className='row m-0 mt-4'>
                         <div className='col mr-4 lh-2'>
                             Mobile No.
-
                             <PhoneInput 
-                                className='mt-3 mr-3 '
+                                className='mt-3 mr-3 justify-content-between'
                                 placeholder="Enter phone number"
                                 defaultCountry='IN'
                                 pattern="[6789][0-9]{9}"

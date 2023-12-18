@@ -17,8 +17,8 @@ const Header = () => {
         }
     }
 
-    // const {state} = useLocation();
-    // const userId = state.userId
+    const {state} = useLocation();
+    const userId = state.userId
 
     return(
         <div className='momentHeader'>
@@ -35,7 +35,7 @@ const Header = () => {
                     <p class="">Add new moment</p>
                 </div>
                 {
-                    newMoment ? <MainContentBody /> : 
+                    newMoment ? <MainContentBody userId={userId} /> : 
                     <div className='nonContent'>
                         <p>No Content Available !!</p>
                     </div>

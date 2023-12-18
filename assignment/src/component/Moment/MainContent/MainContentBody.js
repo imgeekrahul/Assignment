@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './MainContentBody.css'
 import axios from 'axios'
 
@@ -12,6 +12,7 @@ const MainContent = ({userId}) => {
     /* File Upload */
     const [progress, setProgress] = useState({started: false, pc:0})
     const [msg, setMsg] = useState(null);
+
 
     const onChange = (e) => {
         const {value} = e.target;
