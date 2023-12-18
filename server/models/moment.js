@@ -1,6 +1,9 @@
 const mongoose = require("mongoose");
 
 const momentSchema = new mongoose.Schema({
+    userId: {
+        type: mongoose.Schema.Types.ObjectId
+    },
     title: {
         type: String
     },

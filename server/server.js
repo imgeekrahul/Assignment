@@ -56,9 +56,8 @@ app.post("/api/add/user", async (req, res) => {
             password
         }
 
-        res.status(200).json(data);
-        // const newUser = await User.create(data);
-        // res.status(201).json(newUser)
+        const newUser = await User.create(data);
+        res.status(201).json(newUser)
     } catch(err) {
         res.status(500).json({
             success: false,
@@ -71,7 +70,7 @@ app.post("/api/add/user", async (req, res) => {
 app.post("/api/add/moment", upload.single("document"), async (req, res) => {
     try {
         // console.log("Rahul")
-        const {title, tags} = req.body;
+        const {title, tags, userId} = req.body;
         const document = req.file;
 
         let params = {
@@ -87,6 +86,7 @@ app.post("/api/add/moment", upload.single("document"), async (req, res) => {
         }
 
         const moment_data = {
+            userId,
             title,
             tag: tags,
             document: moment_img_url
