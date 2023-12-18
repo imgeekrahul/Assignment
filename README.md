@@ -1,4 +1,4 @@
-
+<p align="center"> <img src="https://5dassign.s3.ap-south-1.amazonaws.com/Screenshot+2023-12-18+at+9.13.29+AM.png" width="50%" height="50%" /> </p>
 
 
 ## `Running the Assignment locally`
