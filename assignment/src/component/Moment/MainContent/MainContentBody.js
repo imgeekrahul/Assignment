@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import './MainContentBody.css'
 import axios from 'axios'
 
-const MainContent = ({userId}) => {
+const MainContent = ({stateData}) => {
     
     const [title, setTitle] = useState('')
     const [input, setInput] = useState('');
@@ -47,9 +47,6 @@ const MainContent = ({userId}) => {
         setTags(prevState => prevState.filter((tag, i) => i !== index))
     }
 
-
-    
-
     const handleFormSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData();
@@ -57,7 +54,7 @@ const MainContent = ({userId}) => {
         formData.append("document", file);
         formData.append("title", title);
         formData.append("tags", tags);
-        formData.append("userId", userId);
+        formData.append("userId", stateData.userId);
 
         setMsg("Uploading...")
         setProgress(prevState => {
@@ -75,6 +72,8 @@ const MainContent = ({userId}) => {
             alert("Your Moment has been saved with Title: "+data.data.title)
             setTitle('');
             setTags([]);
+            setProgress({started: false, pc: 0});
+            setMsg(null);
         })
         .catch(err => {
             setMsg("Upload Failed!!")
@@ -108,7 +107,7 @@ const MainContent = ({userId}) => {
                                     </div>
                                 )
                             )}
-                            <input value={input} placeholder='Enter Tag' onKeyDown={onKeyDown} onChange={onChange} onKeyUp={onKeyUp} required />
+                            <input value={input} placeholder='Enter Tag' onKeyDown={onKeyDown} onChange={onChange} onKeyUp={onKeyUp} />
                         </div>
                         <div className='col-4 fileupload'>
                             <div className='fileupload-drag'>

@@ -1,12 +1,15 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import './Header.css'
 import MainContentBody from '../MainContent/MainContentBody'
 import SideNav from '../SideNav/SideNav'
-import { useLocation } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 
 const Header = () => {
 
     const [newMoment, setNewMoment] = useState(false);
+    const [showContent, setShowContent] = useState(false)
+
+    const navigate = useNavigate();
     
     const handleClick = (optionName) => {
         if(optionName == "momentList") {
@@ -18,7 +21,15 @@ const Header = () => {
     }
 
     const {state} = useLocation();
-    const userId = state.userId
+    const [stateData, setSatatData] = useState(state);
+
+    useEffect(() => {
+        if(stateData == null) {
+            alert("You can't loggedIn, Please Log In !!") 
+            navigate('/')
+        }
+    }, [stateData])
+    
 
     return(
         <div className='momentHeader'>
@@ -35,7 +46,7 @@ const Header = () => {
                     <p class="">Add new moment</p>
                 </div>
                 {
-                    newMoment ? <MainContentBody userId={userId} /> : 
+                    newMoment ? <MainContentBody stateData={stateData} /> : 
                     <div className='nonContent'>
                         <p>No Content Available !!</p>
                     </div>
